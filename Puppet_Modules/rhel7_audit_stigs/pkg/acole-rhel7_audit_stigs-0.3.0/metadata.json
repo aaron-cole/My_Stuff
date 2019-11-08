@@ -1,8 +1,8 @@
 {
-  "name": "acole-sysadmin_tools",
-  "version": "0.2.0",
-  "author": "acole",
-  "summary": "Install System Administrator Utilities",
+  "name": "acole-rhel7_audit_stigs",
+  "version": "0.3.0",
+  "author": "Aaron Cole",
+  "summary": "Apply DISA STIGS Related to audit",
   "license": "Apache-2.0",
   "source": "",
   "project_page": null,
@@ -12,4 +12,3 @@
   ],
   "data_provider": null
 }
-
