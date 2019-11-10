@@ -1,0 +1,11 @@
+# WARNING! This file is managed by Puppet, changes may be overwritten!
+#
+#Loading and unloading of Modules
+-a always,exit -F arch=b32 -S init_module -S finit_module -k modules_load
+-a always,exit -F arch=b64 -S init_module -S finit_module -k modules_load
+-a always,exit -F arch=b32 -S create_module -S delete_module -k modules_unload
+-a always,exit -F arch=b64 -S create_module -S delete_module -k modules_unload
+-w /usr/bin/kmod -p x -F auid!=4294967295 -k module-change
+-w /sbin/insmod -p x -F auid!=4294967295 -k modules
+-w /sbin/rmmod -p x -F auid!=4294967295 -k modules
+-w /sbin/modprobe -p x -F auid!=4294967295 -k modules

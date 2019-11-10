@@ -1,0 +1,32 @@
+# WARNING! This file is managed by Puppet, changes may be overwritten!
+#
+#ALL setuid files to be watched
+
+#-w /usr/lib/polkit-1/polkit-agent-helper-1 -p wa -k SETUID
+#-w /usr/libexec/dbus-1/dbus-daemon-launch-helper -p wa -k SETUID
+#-w /usr/bin/chfn -p wa -k SETUID
+#-w /usr/bin/ssh-agent -p wa -k SETUID
+#-w /usr/bin/write -p wa -k SETUID
+#-w /usr/bin/chage -p wa -k SETUID
+#-w /usr/bin/su -p wa -k SETUID
+#-w /usr/bin/chsh -p wa -k SETUID
+#-w /usr/bin/crontab -p wa -k SETUID
+#-w /usr/bin/at -p wa -k SETUID
+#-w /usr/bin/newgrp -p wa -k SETUID
+#-w /usr/bin/sudo -p wa -k SETUID
+#-w /usr/bin/gpasswd -p wa -k SETUID
+#-w /usr/bin/passwd -p wa -k SETUID
+#-w /usr/bin/pkexec -p wa -k SETUID
+#-w /usr/bin/mount -p wa -k SETUID
+#-w /usr/bin/wall -p wa -k SETUID
+#-w /usr/bin/umount -p wa -k SETUID
+#-w /usr/sbin/postdrop -p wa -k SETUID
+#-w /usr/sbin/usernetctl -p wa -k SETUID
+#-w /usr/sbin/postqueue -p wa -k SETUID
+#-w /usr/sbin/pam_timestamp_check -p wa -k SETUID
+#-w /usr/sbin/unix_chkpwd -p wa -k SETUID
+#-w /usr/sbin/userhelper -p wa -k SETUID
+#-w /usr/sbin/netreport -p wa -k SETUID
+#-w /usr/libexec/openssh/ssh-keysign -p wa -k SETUID
+#-w /usr/libexec/utempter/utempter -p wa -k SETUID
+

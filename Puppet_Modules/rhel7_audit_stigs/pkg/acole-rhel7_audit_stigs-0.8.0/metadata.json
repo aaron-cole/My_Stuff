@@ -1,6 +1,6 @@
 {
   "name": "acole-rhel7_audit_stigs",
-  "version": "0.9.0",
+  "version": "0.8.0",
   "author": "Aaron Cole",
   "summary": "Apply DISA STIGS Related to audit",
   "license": "Apache-2.0",
@@ -12,4 +12,3 @@
   ],
   "data_provider": null
 }
-

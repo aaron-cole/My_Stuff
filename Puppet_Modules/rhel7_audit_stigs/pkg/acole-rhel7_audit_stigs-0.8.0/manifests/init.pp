@@ -37,88 +37,88 @@ class rhel7_audit_stigs {
 	ensure  => 'file',
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
-    seltype => 'auditd_etc_t',
+    mode    => '600,
+    seltype => "auditd_etc_t",
   }
   
-  file { '/etc/audit/auditd.conf':
+  file { "/etc/audit/auditd.conf":
     mode    => '0640',
     source  => 'puppet:///modules/rhel7_audit_stigs/auditd.conf',
   }
 
-  file { '/etc/audit/rules.d/access.rules':
+  file { "/etc/audit/rules.d/access.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/access.rules',
   }
 
-  file { '/etc/audit/rules.d/account_mod.rules':
+  file { "/etc/audit/rules.d/account_mod.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/account_mod.rules',
   }
 
-  file { '/etc/audit/rules.d/audit.rules':
+  file { "/etc/audit/rules.d/audit.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/audit.rules',
   }
 
-  file { '/etc/audit/rules.d/audit_rules_networkconfig_modification.rules':
+  file { "/etc/audit/rules.d/audit_rules_networkconfig_modification.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/audit_rules_networkconfig_modification.rules',
   }
 
-  file { '/etc/audit/rules.d/audit_time_rules.rules':
+  file { "/etc/audit/rules.d/audit_time_rules.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/audit_time_rules.rules',
   }
 
-  file { '/etc/audit/rules.d/delete.rules':
+  file { "/etc/audit/rules.d/delete.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/delete.rules',
   }
 
-  file { '/etc/audit/rules.d/export.rules':
+  file { "/etc/audit/rules.d/export.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/export.rules',
   }
 
-  file { '/etc/audit/rules.d/logins.rules':
+  file { "/etc/audit/rules.d/logins.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/logins.rules',
   }
 
-  file { '/etc/audit/rules.d/MAC-policy.rules':
+  file { "/etc/audit/rules.d/MAC-policy.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/MAC-policy.rules',
   }
 
-  file { '/etc/audit/rules.d/modules.rules':
+  file { "/etc/audit/rules.d/modules.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/modules.rules',
   }
 
-  file { '/etc/audit/rules.d/perm_mod.rules':
+  file { "/etc/audit/rules.d/perm_mod.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/perm_mod.rules',
   }
 
-  file { '/etc/audit/rules.d/privileged_command.rules':
+  file { "/etc/audit/rules.d/privileged_command.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/privileged_command.rules',
   }
 
-  file { '/etc/audit/rules.d/setuid.rules':
+  file { "/etc/audit/rules.d/setuid.rules":
     source  => 'puppet:///modules/rhel7_audit_stigs/setuid.rules',
   }
 
-  file { '/etc/audisp/audispd.conf':
+  file { "/etc/audisp/audispd.conf":
     mode    => '0640',
-    seltype => 'etc_t',
+    seltype => "etc_t",
     source  => 'puppet:///modules/rhel7_audit_stigs/audispd.conf',
   }
 
-  file { '/etc/audisp/audisp-remote.conf':
+  file { "/etc/audisp/audisp-remote.conf":
     mode    => '0640',
-    seltype => 'etc_t',
+    seltype => "etc_t",
     source  => 'puppet:///modules/rhel7_audit_stigs/audisp-remote.conf',
   }
 
-  file { '/etc/audisp/plugins.d/au-remote.conf':
+  file { "/etc/audisp/plugins.d/au-remote.conf":
     mode    => '0640',
-    seltype => 'etc_t',
+    seltype => "etc_t",
     source  => 'puppet:///modules/rhel7_audit_stigs/au-remote.conf',
   }
 
-  file { '/etc/audisp/plugins.d/syslog.conf':
+  file { "/etc/audisp/plugins.d/syslog.conf":
     mode    => '0640',
-    seltype => 'etc_t',
+    seltype => "etc_t",
     source  => 'puppet:///modules/rhel7_audit_stigs/syslog.conf',
   }
 
