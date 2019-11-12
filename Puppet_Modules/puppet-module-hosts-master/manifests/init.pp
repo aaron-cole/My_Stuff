@@ -12,31 +12,30 @@ class hosts (
   $localhost_aliases     = ['localhost',
                             'localhost4',
                             'localhost4.localdomain4'],
-  $localhost6_aliases    = ['localhost6',
-                            'localhost6.localdomain6'],
+  $localhost6_aliases    = ['localhost6'],
   $purge_hosts           = false,
   $target                = '/etc/hosts',
   $host_entries          = undef,
   $enable_extra_entry_1  = false,
-  $extra_entry_1_ip      = undef,
-  $extra_entry_1_fqdn    = undef,
-  $extra_entry_1_aliases = undef,
+  $extra_entry_1_ip      = '0.0.0.0',
+  $extra_entry_1_fqdn    = 'somehost1.somewhere',
+  $extra_entry_1_aliases = 'somehost1',
   $enable_extra_entry_2  = false,
-  $extra_entry_2_ip      = undef,
-  $extra_entry_2_fqdn    = undef,
-  $extra_entry_2_aliases = undef,
+  $extra_entry_2_ip      = '0.0.0.0',
+  $extra_entry_2_fqdn    = 'somehost2.somewhere',
+  $extra_entry_2_aliases = 'somehost2',
   $enable_extra_entry_3  = false,
-  $extra_entry_3_ip      = undef,
-  $extra_entry_3_fqdn    = undef,
-  $extra_entry_3_aliases = undef,
+  $extra_entry_3_ip      = '0.0.0.0',
+  $extra_entry_3_fqdn    = 'somehost3.somewhere',
+  $extra_entry_3_aliases = 'somehost3',
   $enable_extra_entry_4  = false,
-  $extra_entry_4_ip      = undef,
-  $extra_entry_4_fqdn    = undef,
-  $extra_entry_4_aliases = undef,
+  $extra_entry_4_ip      = '0.0.0.0',
+  $extra_entry_4_fqdn    = 'somehost4.somewhere',
+  $extra_entry_4_aliases = 'somehost4',
   $enable_extra_entry_5  = false,
-  $extra_entry_5_ip      = undef,
-  $extra_entry_5_fqdn    = undef,
-  $extra_entry_5_aliases = undef,
+  $extra_entry_5_ip      = '0.0.0.0',
+  $extra_entry_5_fqdn    = 'somehost5.somewhere',
+  $extra_entry_5_aliases = 'somehost5',
 ) {
 
 
@@ -234,7 +233,7 @@ class hosts (
     $my_extra_2_host_aliases = []
     $extra_2_ip              = $extra_entry_2_ip
   }
-  
+
   if $extra_entry_3_enable == true {
     $extra_3_ensure          = 'present'
     $my_extra_3_host_aliases = $extra_entry_3_aliases
@@ -264,11 +263,20 @@ class hosts (
     $my_extra_5_host_aliases = []
     $extra_5_ip              = $extra_entry_5_ip
   }
+  
   Host {
     target => $target,
   }
 
-  host { 'localhost':
+  $local_aliases = $localhost_aliases + $localhost6_aliases + $fqdn_host_aliases
+  
+  host { unique($local_aliases):
+    ensure => 'absent',
+  }
+  
+  $extra_aliases = $extra_entry_1_aliases + $extra_entry_2_aliases + $extra_entry_3_aliases + $extra_entry_4_aliases + $extra_entry_5_aliases
+
+  host {  unique($extra_aliases):
     ensure => 'absent',
   }
 
@@ -283,7 +291,7 @@ class hosts (
     host_aliases => $my_localhost6_aliases,
     ip           => $localhost6_ip,
   }
-
+  
   if $use_fqdn_real == true {
     host { $::fqdn:
       ensure       => $fqdn_ensure,
