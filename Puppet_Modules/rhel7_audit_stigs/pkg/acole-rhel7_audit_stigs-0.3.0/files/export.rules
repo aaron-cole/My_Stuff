@@ -1,6 +1,0 @@
-# WARNING! This file is managed by Puppet, changes may be overwritten!
-#
--a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mount
--a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mount
--a always,exit -F path=/usr/bin/mount -F auid>=1000 -F auid!=4294967295 -k mount
--a always,exit -F path=/usr/bin/umount -F auid>=1000 -F auid!=4294967295 -k mount

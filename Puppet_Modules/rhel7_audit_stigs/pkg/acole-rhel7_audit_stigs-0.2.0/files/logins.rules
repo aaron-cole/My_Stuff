@@ -1,5 +1,0 @@
-# WARNING! This file is managed by Puppet, changes may be overwritten!
-#
-#Successful / Unsuccessful logins
--w /var/run/faillock -p wa -k login_fail
--w /var/log/lastlog -p wa -k login_last_log
