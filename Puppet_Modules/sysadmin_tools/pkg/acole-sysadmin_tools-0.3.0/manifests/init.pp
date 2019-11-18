@@ -20,7 +20,7 @@ class sysadmin_tools {
 
 Package { ensure => 'installed' }
 
-$packages = [ 'sysstat', 'lsof', 'mcelog', 'rasdaemon', 'strace', 'ltrace', 'valgrind', 'setools-console', 'policycoreutils-python', 'setroubleshoot-server', 'iotop', 'procps-ng', 'acpid', 'blktrace', 'dstat', 'curl', 'wget', 'iperf', 'mtr', 'iputils', 'ethtool', 'traceroute', 'iptraf-ng', 'nmap-ncat' ]
+$packages = [ 'sysstat', 'lsof', 'mcelog', 'rasdaemon', 'strace', 'ltrace', 'valgrind', 'setools-console', 'setroubleshoot-server', 'iotop', 'procps-ng', 'acpid', 'blktrace', 'dstat', 'curl', 'wget', 'mtr', 'iputils', 'ethtool', 'traceroute', 'iptraf-ng', 'nmap-ncat' ]
 
 package { $packages: }
 
