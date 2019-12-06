@@ -1,0 +1,7 @@
+fixtures:
+  repositories:
+    stdlib:
+      repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+      ref: '4.24.0'
+  symlinks:
+    selinux: "#{source_dir}"

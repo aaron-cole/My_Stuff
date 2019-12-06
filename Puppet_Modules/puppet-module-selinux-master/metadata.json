@@ -1,0 +1,55 @@
+{
+  "name": "acole-selinux",
+  "version": "2.3.1",
+  "author": "acole",
+  "summary": "Manage SELinux spinoff of ghoneycut puppet-module-selinux that includes RHEL8 support",
+  "description": "manage selinux",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "requirements": [
+    {"name":"puppet","version_requirement": ">= 5.0.0 < 7.0.0" }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7",
+		"8"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7",
+		"8"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7",
+		"8"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7",
+		"8"
+      ]
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.24.0 < 6.0.0"}
+  ]
+}
