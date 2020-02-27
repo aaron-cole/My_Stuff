@@ -1,0 +1,83 @@
+# Class: postfix_settings
+# ===========================
+#
+# Authors
+# -------
+#
+# Author Name <aaron-cole@outlook.com>
+#
+# Copyright
+# ---------
+#
+# Copyright 2020 Aaron Cole, unless otherwise noted.
+#
+class postfix_settings (
+
+  $target_file               = '/etc/postfix/main.cf',
+  $myhostname                = undef,
+  $mydomain                  = $::domain,
+  $relay_host                = undef,
+  $smtpd_client_restrictions = 'permit_mynetworks,reject',
+
+)  {
+  package { 'postfix':
+    ensure => installed,
+  }
+
+  service { 'postfix':
+    ensure  => running,
+    enable  => true,
+    require => Package["postfix"],
+  }
+
+  if $myhostname {
+	ini_setting { 'postfix myhostname':
+	  ensure            => present,
+	  path              => $target_file,
+	  section           => '',
+	  key_val_separator => ' = ',
+	  setting           => 'myhostname',
+	  value             => $myhostname,
+    }
+   }
+
+  if $mydomain {
+	ini_setting { 'postfix mydomain':
+	  ensure            => present,
+	  path              => $target_file,
+	  section           => '',
+	  key_val_separator => ' = ',
+	  setting           => 'mydomain',
+	  value             => $mydomain,
+    }
+   }
+
+  if $relay_host {
+	ini_setting { 'postfix relay_host':
+	  ensure            => present,
+	  path              => $target_file,
+	  section           => '',
+	  key_val_separator => ' = ',
+	  setting           => 'relayhost',
+	  value             => $relay_host,
+    }
+   }
+
+  if $smtpd_client_restrictions {
+	ini_setting { 'postfix smtpd_client_restrictions':
+	  ensure            => present,
+	  path              => $target_file,
+	  section           => '',
+	  key_val_separator => ' = ',
+	  setting           => 'smtpd_client_restrictions',
+	  value             => $smtpd_client_restrictions,
+    }
+   }
+  
+  file { $target_file:
+    notify  => Service["postfix"],
+	owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+  }
+}
