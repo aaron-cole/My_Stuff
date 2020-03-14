@@ -42,7 +42,6 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'myhostname',
 	  value             => $myhostname,
-	  notify            => Service['postfix'],
     }
    }
 
@@ -54,7 +53,6 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'mydomain',
 	  value             => $mydomain,
-	  notify            => Service['postfix'],
     }
    }
 
@@ -66,7 +64,6 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'relayhost',
 	  value             => $relay_host,
-	  notify            => Service['postfix'],
     }
    }
 
@@ -78,14 +75,13 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'smtpd_client_restrictions',
 	  value             => $smtpd_client_restrictions,
-	  notify            => Service['postfix'],
     }
    }
   
   file { $target_file:
+    notify  => Service['postfix'],
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    notify  => Service['postfix'],
   }
 }

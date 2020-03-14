@@ -42,8 +42,14 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'myhostname',
 	  value             => $myhostname,
-	  notify            => Service['postfix'],
-    }
+    } else {
+      ini_setting { 'postfix myhostname':
+	   ensure            => absent,
+	   path              => $target_file,
+	   section           => '',
+	   setting           => 'myhostname',
+      }
+	}
    }
 
   if $mydomain {
@@ -54,8 +60,14 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'mydomain',
 	  value             => $mydomain,
-	  notify            => Service['postfix'],
-    }
+    } else {
+      ini_setting { 'postfix mydomain':
+	   ensure            => absent,
+	   path              => $target_file,
+	   section           => '',
+	   setting           => 'mydomain',
+      }
+	}
    }
 
   if $relay_host {
@@ -66,8 +78,14 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'relayhost',
 	  value             => $relay_host,
-	  notify            => Service['postfix'],
-    }
+    } else {
+      ini_setting { 'postfix relay_host':
+	   ensure            => absent,
+	   path              => $target_file,
+	   section           => '',
+	   setting           => 'relayhost',
+      }
+	}
    }
 
   if $smtpd_client_restrictions {
@@ -78,14 +96,20 @@ class postfix_settings (
 	  key_val_separator => ' = ',
 	  setting           => 'smtpd_client_restrictions',
 	  value             => $smtpd_client_restrictions,
-	  notify            => Service['postfix'],
-    }
+    } else {
+      ini_setting { 'postfix smtpd_client_restrictions':
+	   ensure            => absent,
+	   path              => $target_file,
+	   section           => '',
+	   setting           => 'smtpd_client_restrictions',
+      }
+	}
    }
   
   file { $target_file:
+    notify  => Service['postfix'],
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    notify  => Service['postfix'],
   }
 }
