@@ -1,0 +1,114 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+#
+# Windows Azure Linux Agent Configuration
+#
+
+# Specified program is invoked with the argument "Ready" when we report ready status
+# to the endpoint server.
+Role.StateConsumer=<%= @role_stateconsumer %>
+
+# Specified program is invoked with XML file argument specifying role
+#  configuration.
+Role.ConfigurationConsumer=<%= @role_configurationconsumer %>
+
+# Specified program is invoked with XML file argument specifying role topology.
+Role.TopologyConsumer=<%= @role_topologyconsumer %>
+
+# Enable instance creation
+#Provisioning.Enabled=y
+Provisioning.Enabled=<%= @provisioning_enabled %>
+
+# Password authentication for root account will be unavailable.
+#Provisioning.DeleteRootPassword=y
+Provisioning.DeleteRootPassword=<%= @provisioning_deleterootpassword %>
+
+# Generate fresh host key pair.
+#Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.RegenerateSshHostKeyPair=<%= @provisioning_regeneratesshhostkeypair %>
+
+# Supported values are "rsa", "dsa" and "ecdsa".
+Provisioning.SshHostKeyPairType=<%= @provisioning_sshhostkeypairtype %>
+
+# Monitor host name changes and publish changes via DHCP requests.
+Provisioning.MonitorHostName=<%= @provisioning_monitorhostname %>
+
+# Decode CustomData from Base64.
+Provisioning.DecodeCustomData=<%= @provisioning_decodecustomdata %>
+
+# Execute CustomData after provisioning.
+Provisioning.ExecuteCustomData=<%= @provisioning_executecustomdata %>
+
+# Algorithm used by crypt when generating password hash.
+<% if @provisioning_passwordcryptid -%>
+Provisioning.PasswordCryptId=<%= @provisioning_passwordcryptid %>
+<% else -%>
+#Provisioning.PasswordCryptId=6
+<% end -%>
+
+# Length of random salt used when generating password hash.
+<% if @provisioning_passwordcryptsaltlength -%>
+Provisioning.PasswordCryptSaltLength=<%= @provisioning_passwordcryptsaltlength %>
+<% else -%>
+#Provisioning.PasswordCryptSaltLength=10
+<% end -%>
+
+# Format if unformatted. If 'n', resource disk will not be mounted.
+#ResourceDisk.Format=y
+ResourceDisk.Format=<%= @resourcedisk_format %>
+
+# File system on the resource disk
+# Typically ext3 or ext4. FreeBSD images should use 'ufs2' here.
+ResourceDisk.Filesystem=<%= @resourcedisk_filesystem %>
+
+# Mount point for the resource disk
+ResourceDisk.MountPoint=<%= @resourcedisk_mountpoint %>
+
+# Create and use swapfile on resource disk.
+ResourceDisk.EnableSwap=<%= @resourcedisk_enableswap %>
+
+# Size of the swapfile.
+ResourceDisk.SwapSizeMB=<%= @resourcedisk_swapsizemb %>
+
+# Respond to load balancer probes if requested by Windows Azure.
+LBProbeResponder=<%= @lbproberesponder %>
+
+# File to write log to.
+# '/var/log/waagent.log' if not set
+Logs.File=<%= @logs_file %>
+
+# Enable logging to serial console (y|n)
+# When stdout is not enough...
+# 'y' if not set
+Logs.Console=<%= @logs_console %>
+
+# Enable verbose logging (y|n)
+Logs.Verbose=<%= @logs_verbose %>
+
+# Preferred network interface to communicate with Azure platform
+<% if @network_interface -%>
+Network.Interface=<%= @network_interface %>
+<% else -%>
+#Network.Interface=eth0
+<% end -%>
+
+# Root device timeout in seconds.
+OS.RootDeviceScsiTimeout=<%= @os_rootdevicescsitimeout %>
+
+# If "None", the system default version is used.
+OS.OpensslPath=<%= @os_opensslpath %>
+
+# If set, agent will use proxy server to access internet
+<% if @httpproxy_host_real -%>
+HttpProxy.Host=<%= @httpproxy_host_real %>
+<% else -%>
+#HttpProxy.Host=None
+<% end -%>
+<% if @httpproxy_port -%>
+HttpProxy.Port=<%= @httpproxy_port %>
+<% else -%>
+#HttpProxy.Port=None
+<% end -%>
+
+# Enable Azure Extensions
+Extensions.Enabled=<%= @extensions_enabled %>
