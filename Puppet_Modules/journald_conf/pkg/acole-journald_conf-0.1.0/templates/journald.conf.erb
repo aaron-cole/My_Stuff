@@ -1,0 +1,157 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+#
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+#
+# Entries in this file show the compile time defaults.
+# You can change settings by editing this file.
+# Defaults can be restored by simply deleting this file.
+#
+# See journald.conf(5) for details.
+
+[Journal]
+<% if @storage -%>
+Storage=<%= @storage %>
+<% else -%>
+#Storage=auto
+<% end -%>
+<% if @compress -%>
+Compress=<%= @compress %>
+<% else -%>
+#Compress=yes
+<% end -%>
+<% if @seal -%>
+Seal=<%= @seal %>
+<% else -%>
+#Seal=yes
+<% end -%>
+<% if @splitmode -%>
+SplitMode=<%= @splitmode %>
+<% else -%>
+#SplitMode=uid
+<% end -%>
+<% if @syncintervalsec -%>
+SyncIntervalSec=<%= @syncintervalsec %>
+<% else -%>
+#SyncIntervalSec=5m
+<% end -%>
+<% if @ratelimitinterval -%>
+RateLimitInterval=<%= @ratelimitinterval %>
+<% else -%>
+#RateLimitInterval=30s
+<% end -%>
+<% if @ratelimitburst -%>
+RateLimitBurst=<%= @ratelimitburst %>
+<% else -%>
+#RateLimitBurst=1000
+<% end -%>
+<% if @systemmaxuse -%>
+SystemMaxUse=<%= @systemmaxuse %>
+<% else -%>
+#SystemMaxUse=
+<% end -%>
+<% if @systemkeepfree -%>
+SystemKeepFree=<%= @systemkeepfree %>
+<% else -%>
+#SystemKeepFree=
+<% end -%>
+<% if @systemmaxfilesize -%>
+SystemMaxFileSize=<%= @systemmaxfilesize %>
+<% else -%>
+#SystemMaxFileSize=
+<% end -%>
+<% if @runtimemaxuse -%>
+RuntimeMaxUse=<%= @runtimemaxuse %>
+<% else -%>
+#RuntimeMaxUse=
+<% end -%>
+<% if @runtimekeepfree -%>
+RuntimeKeepFree=<%= @runtimekeepfree %>
+<% else -%>
+#RuntimeKeepFree=
+<% end -%>
+<% if @runtimemaxfilesize -%>
+RuntimeMaxFileSize=<%= @runtimemaxfilesize %>
+<% else -%>
+#RuntimeMaxFileSize=
+<% end -%>
+<% if @maxretentionsec -%>
+MaxRetentionSec=<%= @maxretentionsec %>
+<% else -%>
+#MaxRetentionSec=
+<% end -%>
+<% if @maxfilesec -%>
+MaxFileSec=<%= @maxfilesec %>
+<% else -%>
+#MaxFileSec=1month
+<% end -%>
+<% if @forwardtosyslog -%>
+ForwardToSyslog=<%= @forwardtosyslog %>
+<% else -%>
+#ForwardToSyslog=yes
+<% end -%>
+<% if @forwardtokmsg -%>
+ForwardToKMsg=<%= @forwardtokmsg %>
+<% else -%>
+#ForwardToKMsg=no
+<% end -%>
+<% if @forwardtoconsole -%>
+ForwardToConsole=<%= @forwardtoconsole %>
+<% else -%>
+#ForwardToConsole=no
+<% end -%>
+<% if @forwardtoconsole -%>
+ForwardToWall=<%= @forwardtoconsole %>
+<% else -%>
+#ForwardToWall=yes
+<% end -%>
+<% if @ttypath -%>
+TTYPath=<%= @ttypath %>
+<% else -%>
+#TTYPath=/dev/console
+<% end -%>
+<% if @maxlevelstore -%>
+MaxLevelStore=<%= @maxlevelstore %>
+<% else -%>
+#MaxLevelStore=debug
+<% end -%>
+<% if @maxlevelsyslog -%>
+MaxLevelSyslog=<%= @maxlevelsyslog %>
+<% else -%>
+#MaxLevelSyslog=debug
+<% end -%>
+<% if @maxlevelkmsg -%>
+MaxLevelKMsg=<%= @maxlevelkmsg %>
+<% else -%>
+#MaxLevelKMsg=notice
+<% end -%>
+<% if @maxlevelconsole -%>
+MaxLevelConsole=<%= @maxlevelconsole %>
+<% else -%>
+#MaxLevelConsole=info
+<% end -%>
+<% if @maxlevelwall -%>
+MaxLevelWall=<%= @maxlevelwall %>
+<% else -%>
+#MaxLevelWall=emerg
+<% end -%>
+<% if @linemax -%>
+LineMax=<%= @linemax %>
+<% else -%>
+#LineMax=48K
+<% end -%>
+
+
+
+
+
+
+
+
+
+

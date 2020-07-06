@@ -1,0 +1,16 @@
+{
+  "name": "acole-journald_conf",
+  "version": "0.2.0",
+  "author": "acole",
+  "summary": "Module to manage /etc/systemd/journald.conf",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"puppetlabs-inifile","version_requirement":">= 3.1.0"}
+  ],
+  "data_provider": null
+}
+
