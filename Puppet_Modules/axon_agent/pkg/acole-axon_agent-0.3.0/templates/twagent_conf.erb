@@ -1,0 +1,60 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+#
+# Tripwire Axon Agent Configuration File
+#
+# DNS SRV record options
+<% if @dns_service_name -%>
+dns.service.name=<%= @dns_service_name %>
+<% end -%>
+<% if @dns_service_domain -%>
+dns.service.domain=<%= @dns_service_domain %>
+<% end -%>
+
+# Host-based agent configuration
+<% if @bridge_host -%>
+bridge.host=<%= @bridge_host %>
+<% end -%>
+<% if @bridge_port -%>
+bridge.port=<%= @bridge_port %>
+<% end -%>
+
+# Bridge registration pre-shared key
+<% if @bridge_auth_mode -%>
+bridge.auth.mode=<%= @bridge_auth_mode %>
+registration.file.name=<%= @registration_filename %>
+<% end -%>
+
+# Proxy settings
+<% if @socks5_host -%>
+socks5.host=<%= @socks5_host %>
+<% end -%>
+<% if @socks5_port -%>
+socks5.port=<%= @socks5_port %>
+<% end -%>
+<% if @socks5_user_name -%>
+socks5.user.name=<%= @socks5_user_name %>
+<% end -%>
+<% if @socks5_user_password -%>
+socks5.user.password=<%= @socks5_user_password %>
+<% end -%>
+
+# TLS version
+<% if @tls_version -%>
+tls.version=<%= @tls_version %>
+<% end -%>
+
+# TLS cipher suites
+<% if @tls_cipher_suites -%>
+tls.cipher.suites=<%= @tls_cipher_suites %>
+<% end -%>
+
+# The maximum size of the agent spool
+<% if @spool_size_max -%>
+spool.size.max=<%= @spool_size_max %>
+<% end -%>
+
+# Debugging - twagent
+<% if @spool_size_max -%>
+log4cplus.logger.twagent=<%= @spool_size_max %>
+<% end -%>
