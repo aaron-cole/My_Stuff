@@ -1,0 +1,7 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+
+<% @real_blacklist.each do |item| -%>
+blacklist <%= item %>
+install <%= item %> /bin/true
+<% end -%>
