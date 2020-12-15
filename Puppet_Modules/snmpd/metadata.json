@@ -1,6 +1,6 @@
 {
   "name": "acole-snmpd",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "acole",
   "summary": "Module to deploy snmp user",
   "license": "Apache-2.0",

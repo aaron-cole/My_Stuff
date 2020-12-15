@@ -116,6 +116,7 @@ class snmpd (
 	  key_val_separator => '  ',
 	  setting           => 'syscontact',
 	  value             => $config_file_contact,
+      notify            => Service[$service_name],
     }  
    }
 
@@ -128,6 +129,7 @@ class snmpd (
 	  key_val_separator => '  ',
 	  setting           => 'syslocation',
 	  value             => $real_location,
+      notify            => Service[$service_name],
     }  
    }
 
@@ -139,6 +141,7 @@ class snmpd (
 	  key_val_separator => ' ',
 	  setting           => 'sysservices',
 	  value             => $config_file_sysservices,
+      notify            => Service[$service_name],
     }  
    }
 
@@ -150,6 +153,7 @@ class snmpd (
 	  key_val_separator => ' ',
 	  setting           => 'load',
 	  value             => $config_file_load,
+      notify            => Service[$service_name],
     }  
    }
 
@@ -161,6 +165,7 @@ class snmpd (
 	  key_val_separator => '  ',
 	  setting           => 'pass',
 	  value             => $config_file_pass,
+      notify            => Service[$service_name],
     }  
    }   
   
